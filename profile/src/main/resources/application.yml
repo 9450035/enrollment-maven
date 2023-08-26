@@ -1,0 +1,23 @@
+urls:
+  course: http://localhost:8082
+keys:
+  pri: classpath:keys/private.pem
+  pub: classpath:keys/public.pem
+spring:
+  threads:
+    virtual:
+      enabled: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          public-key-location: classpath:keys/public.pem
+  datasource:
+    username: enrollment
+    password: password
+    url: jdbc:postgresql://localhost:5432/enrollment
+  jpa:
+    hibernate:
+      ddl-auto: none
+server:
+  port: 8081
