@@ -1,4 +1,4 @@
-package ir.ac.fum.enrollment.profile.profile;
+package ir.ac.fum.enrollment.profile;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

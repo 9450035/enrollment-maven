@@ -14,10 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequiredArgsConstructor
 public class TermLessonController {
 
     private final TermLessonService termLessonService;
+
+    public TermLessonController(TermLessonService termLessonService) {
+        this.termLessonService = termLessonService;
+    }
 
     @PostMapping("/create-terms")
     public ResponseEntity<Void> createTerm(@RequestBody TermLessonDTO termLessonDTO) {

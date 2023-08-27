@@ -21,6 +21,13 @@ public class TermLessonService {
     private final TermLessonMapper termLessonMapper;
     private final CourseService courseService;
 
+//    public TermLessonService(TermLessonRepository termLessonRepository, StudentService studentService, TermLessonMapper termLessonMapper, CourseService courseService) {
+//        this.termLessonRepository = termLessonRepository;
+//        this.studentService = studentService;
+//        this.termLessonMapper = termLessonMapper;
+//        this.courseService = courseService;
+//    }
+
     public void chooseTerm(TermLessonDTO termLessonDTO) {
 
         termLessonRepository.saveAll(termLessonDTO.courseId().stream()
