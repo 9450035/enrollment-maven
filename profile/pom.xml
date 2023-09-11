@@ -8,7 +8,7 @@
 		<version>3.2.0-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ir.ac.fum.enrollment.profile</groupId>
+	<groupId>ir.ac.fum.enrollment</groupId>
 	<artifactId>profile</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>profile</name>
@@ -74,6 +74,18 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+			<version>2.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.2.0</version>
 		</dependency>
 
 		<dependency>

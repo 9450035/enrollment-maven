@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class TermLessonService {
 
     private final TermLessonRepository termLessonRepository;
@@ -21,12 +21,12 @@ public class TermLessonService {
     private final TermLessonMapper termLessonMapper;
     private final CourseService courseService;
 
-//    public TermLessonService(TermLessonRepository termLessonRepository, StudentService studentService, TermLessonMapper termLessonMapper, CourseService courseService) {
-//        this.termLessonRepository = termLessonRepository;
-//        this.studentService = studentService;
-//        this.termLessonMapper = termLessonMapper;
-//        this.courseService = courseService;
-//    }
+    public TermLessonService(TermLessonRepository termLessonRepository, StudentService studentService, TermLessonMapper termLessonMapper, CourseService courseService) {
+        this.termLessonRepository = termLessonRepository;
+        this.studentService = studentService;
+        this.termLessonMapper = termLessonMapper;
+        this.courseService = courseService;
+    }
 
     public void chooseTerm(TermLessonDTO termLessonDTO) {
 
@@ -41,7 +41,7 @@ public class TermLessonService {
                                 .stream().toList())
                 .map(termLessons -> {
                     if (!termLessons.isEmpty())
-                        return Arrays.stream(courseService.findCourse(termLessons.stream().map(TermLesson::getId).toList()))
+                        return Arrays.stream(courseService.findCourse(termLessons.stream().map(TermLesson::getCourse).toList()))
                                 .flatMap(courseOut -> termLessons.stream()
                                         .filter(termLesson -> termLesson.getId().equals(courseOut.id()))
                                         .map(termLesson -> termLessonMapper.toDto(termLesson, courseOut)));

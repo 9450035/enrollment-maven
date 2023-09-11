@@ -14,14 +14,14 @@ spring:
           public-key-location: classpath:keys/public.pem
 
   datasource:
-    url: jdbc:h2:mem:profile
-    driver-class-name: org.h2.Driver
-  #    username: enrollment
-#    password: password
-#    url: jdbc:postgresql://localhost:5432/enrollment
+#    url: jdbc:h2:mem:profile
+#    driver-class-name: org.h2.Driver
+      username: profile
+      password: nQmRmIgG8Zo
+      url: jdbc:postgresql://localhost:5432/enrollment
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   sql:
     init:
       mode: never

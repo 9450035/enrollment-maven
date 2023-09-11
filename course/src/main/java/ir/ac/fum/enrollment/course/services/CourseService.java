@@ -17,10 +17,15 @@ import static java.util.function.Predicate.not;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class CourseService {
     private final CourseRepository repository;
     private final CourseMapper courseMapper;
+
+    public CourseService(CourseRepository repository, CourseMapper courseMapper) {
+        this.repository = repository;
+        this.courseMapper = courseMapper;
+    }
 
     public void addCourses() {
         var math = repository.save(new CourseEntity("Math"));
@@ -44,14 +49,14 @@ public class CourseService {
     }
 
     private static boolean checkCourseRequisite(CheckRequisiteBody body, CourseEntity courseEntity) {
-        var preRequisite = courseEntity.getPreRequisite().stream()
-                .map(CourseEntity::getId)
-                .allMatch(body.passedCourses()::contains);
-        var coRequisite = courseEntity.getCoRequisite().stream()
-                .map(CourseEntity::getId)
-                .filter(not(body.passedCourses()::contains))
-                .allMatch(body.selectedCourses()::contains);
-        return preRequisite && coRequisite;
+//        var preRequisite = courseEntity.getPreRequisite().stream()
+//                .map(CourseEntity::getId)
+//                .allMatch(body.passedCourses()::contains);
+//        var coRequisite = courseEntity.getCoRequisite().stream()
+//                .map(CourseEntity::getId)
+//                .filter(not(body.passedCourses()::contains))
+//                .allMatch(body.selectedCourses()::contains);
+        return true /*&& coRequisite*/;
     }
 
     public List<CourseOut> findCourse(List<Long> courseIds) {

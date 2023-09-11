@@ -8,7 +8,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface TermLessonMapper {
 

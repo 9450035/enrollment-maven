@@ -20,7 +20,7 @@ import java.util.Objects;
 public class GroupEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Long id;
 
     Long course;
 
